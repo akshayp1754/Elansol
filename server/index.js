@@ -10,14 +10,10 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 const authRoutes = require("./routes/auth");
-const categoryRoutes = require("./routes/category");
-const productsRoutes = require("./routes/product");
 const registerUserRoutes = require("./routes/user")
 
 
 app.use("/auth", authRoutes);
-app.use("/category", categoryRoutes);
-app.use("/product", productsRoutes);
 app.use("/registerUser", registerUserRoutes);
 
 app.get("/", (req, res) => {

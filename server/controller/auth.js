@@ -1,5 +1,4 @@
 const { User } = require("../schema/user");
-const { comparePassword, hashPassword } = require("../utils/auth");
 const { verifyAuthToken } = require("../utils/token");
 const jwt = require("jsonwebtoken");
 
