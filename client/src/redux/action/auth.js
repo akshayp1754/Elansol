@@ -19,6 +19,7 @@ export const loginUser = (authData) => {
   return async (dispatch) => {
     try {
       const response = await api.login(authData);
+      console.log(response);
       dispatch({ type: "AUTH", payload: response });
       axios.defaults.headers.common['Authorization'] = `${response.data.token}`
       localStorage.setItem("token", response.data.token);

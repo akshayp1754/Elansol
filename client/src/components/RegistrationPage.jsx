@@ -1,21 +1,21 @@
-// src/components/RegistrationForm.js
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { createUser } from '../redux/action/register';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createUser } from "../redux/action/register";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
-  const [name, setName] = useState('');
-  const [dob, setDob] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [dob, setDob] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
-
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      dispatch(createUser({name, dob, email, password}))
+      await dispatch(createUser({ name, dob, email, password }));
+      navigate("/");
     } catch (error) {
       console.error(error.message);
     }
@@ -26,7 +26,9 @@ const RegistrationForm = () => {
       <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
       <form onSubmit={handleRegister}>
         <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-700">Name</label>
+          <label htmlFor="name" className="block text-gray-700">
+            Name
+          </label>
           <input
             type="text"
             id="name"
@@ -37,7 +39,9 @@ const RegistrationForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="dob" className="block text-gray-700">Date of Birth</label>
+          <label htmlFor="dob" className="block text-gray-700">
+            Date of Birth
+          </label>
           <input
             type="date"
             id="dob"
@@ -48,7 +52,9 @@ const RegistrationForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700">Email</label>
+          <label htmlFor="email" className="block text-gray-700">
+            Email
+          </label>
           <input
             type="email"
             id="email"
@@ -59,7 +65,9 @@ const RegistrationForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-gray-700">Password</label>
+          <label htmlFor="password" className="block text-gray-700">
+            Password
+          </label>
           <input
             type="password"
             id="password"
