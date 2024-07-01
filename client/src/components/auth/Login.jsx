@@ -15,7 +15,7 @@ function Login() {
       e.preventDefault();
       setLoading(true);
       const login = await axios.post(
-        "https://digitalflake.onrender.com/auth/login",
+        "https://elansol-oeqa.onrender.com/auth/login",
         {
           email,
           password,
@@ -42,11 +42,11 @@ function Login() {
         <a
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
-          <img
+          {/* <img
             className="w-full h-20 mr-2"
             src="https://digitalflake.com/wp-content/uploads/2023/04/DF_logo-transparent2.png"
             alt="logo"
-          />
+          /> */}
           
         </a>
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">

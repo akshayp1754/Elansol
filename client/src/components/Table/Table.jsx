@@ -10,7 +10,7 @@ function Table() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/registerUser");
+      const response = await axios.get("https://elansol-oeqa.onrender.com/registerUser");
       setUsers(response.data.data);
     } finally {
       setLoading(false);

@@ -15,13 +15,13 @@ module.exports.signup = async (req, res) => {
       });
     }
 
-    const hashedPassword = await hashPassword(password);
+    
 
     const newUser = await User.create({
       firstName,
       lastName,
       email,
-      password: hashedPassword,
+      password,
     });
 
     return res.status(201).json({
@@ -49,14 +49,7 @@ module.exports.login = async (req, res) => {
         message: "User not found",
       });
     }
-    const isMatch = await comparePassword(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({
-        message: "Invalid credentials",
-        success: false,
-        data: null,
-      });
-    }
+    
     const token = jwt.sign(
       {
         id: user._id,
