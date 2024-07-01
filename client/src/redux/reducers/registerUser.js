@@ -5,7 +5,10 @@ const userReducer = (state = initialState, action) => {
 
   switch (type) {
     case "User":
-      return payload;
+      return {
+        ...state,
+        ...payload,
+      };
     default:
       return state;
   }
