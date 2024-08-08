@@ -3,7 +3,6 @@ const { RegisterUser } = require("../schema/registerUser");
 module.exports.user = async (req, res) => {
   try {
     const { name, email, dob, password } = req.body;
-    console.log({ name, email, dob, password });
 
     const newUser = await RegisterUser.create({
       name,
@@ -11,7 +10,6 @@ module.exports.user = async (req, res) => {
       dob,
       password,
     });
-    console.log(newUser);
     return res.status(201).json({
       message: "new user created successfully",
       success: true,
